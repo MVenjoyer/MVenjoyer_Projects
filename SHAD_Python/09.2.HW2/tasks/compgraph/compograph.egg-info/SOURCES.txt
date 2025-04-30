@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.py
+compgraph/__init__.py
+compgraph/algorithms.py
+compgraph/external_sort.py
+compgraph/graph.py
+compgraph/operations.py
+compograph.egg-info/PKG-INFO
+compograph.egg-info/SOURCES.txt
+compograph.egg-info/dependency_links.txt
+compograph.egg-info/top_level.txt

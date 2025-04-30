@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: steganography_tool
+Version: 0.1
+Summary: simple LSB
+Author: MVenjoyer
+Author-email: MVenjoyer <ggg.gggyy@yandex.ru>
+Requires-Dist: click
+Requires-Dist: pillow
+Requires-Dist: numpy

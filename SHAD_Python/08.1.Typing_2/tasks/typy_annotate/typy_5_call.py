@@ -1,0 +1,56 @@
+import collections.abc as abc
+from typing import TypeVar
+
+A = TypeVar('A', complex, float, int)
+B = TypeVar('B', complex, float, int)
+C = TypeVar('C', complex, float, int)
+D = TypeVar('D', float, int)
+
+
+def f(a: abc.Callable[[A, B, C], D], b: A, c: B, d: C) -> D:
+    return a(b, c, d)
+
+
+TEST_SAMPLES = """
+# SUCCESS
+def g(a: float, b: float, c: complex) -> int:
+    return 1
+
+f(g, 1, 4.5, 1j)
+
+# SUCCESS
+def g(a: complex, b: complex, c: complex) -> bool:
+    return True
+
+f(g, 1, 4, True)
+
+# ERROR
+def g(a: bool, b: float, c: complex) -> int:
+    return 1
+
+f(g, 1, 4.5, 1j)
+
+# ERROR
+def g(a: int, b: int, c: complex) -> int:
+    return 1
+
+f(g, 1, 4.5, 1j)
+
+# ERROR
+def g(a: int, b: float, c: float) -> int:
+    return 1
+
+f(g, 1, 4.5, 1j)
+
+# SUCCESS
+def g(a: float, b: float, c: complex) -> float:
+    return 1.0
+
+f(g, True, True, True)
+
+# ERROR
+def g(a: float, b: float, c: complex) -> complex:
+    return 1j
+
+f(g, True, True, True)
+"""
