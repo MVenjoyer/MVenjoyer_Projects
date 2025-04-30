@@ -1,1 +1,0 @@
-drop table sensors_users;
