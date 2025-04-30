@@ -1,5 +1,0 @@
-{
-  "explicit_private_tests": [
-    "test_check*"
-  ]
-}
